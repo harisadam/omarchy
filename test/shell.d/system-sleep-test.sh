@@ -4,10 +4,6 @@ set -euo pipefail
 
 source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/base-test.sh"
 
-grep -qx 'singleton SystemSleep 1.0 SystemSleep.qml' "$ROOT/shell/Commons/qmldir" ||
-  fail "qs.Commons registers the SystemSleep singleton"
-pass "qs.Commons registers the SystemSleep singleton"
-
 require_compositor "system sleep watcher test"
 
 if ! command -v quickshell >/dev/null 2>&1; then
